@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Dad Jokes</title>
+        <link href="css/main.css" rel="stylesheet" type="text/css"> 
+    </head>
+    <body>
+        <div id="jokes">
+          <br>
+          <form>
+            <input id="bigButton" type="submit" value="Random Joke">
+          </form>
+          
+          <p>Output</p>
+          <textarea id="displayJoke">No Output</textarea>
+        </div> 
+        
+    <script>
+        $("#bigButton").click(function() {
+        let url = "joke/?q=".val();
+          $.getJSON(url, function(data) {
+              let result = "";
+              result = "<p>" + data + "<p>";
+              $("#displayJoke").html(result);
+          });
+        });
+    </script>
+    </body>
+</html>
+
