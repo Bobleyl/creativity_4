@@ -8,11 +8,16 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/joke',function(req,res,next){
+  req.headers['Content-Type']='application/json';
   var url = "https://icanhazdadjoke.com/";
-  console.log("query", req.query);
-  url += req.query['q'];
-  url += "?format=json";
-  request(url).pipe(res);
+  req.pipe(request(url)).pipe(res);
+});
+
+router.get('/search',function(req,res,next){
+  req.headers['Content-Type']='application/json';
+  var url = "https://icanhazdadjoke.com/search/";
+  url += "?term=";
+  req.pipe(request(url)).pipe(res);
 });
 
 module.exports = router;

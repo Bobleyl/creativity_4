@@ -4,7 +4,7 @@ a {
 
 body {
     padding: 50px;
-    background-color: rgb(198,44,70) ;
+    background-image: url("bg.jpg");
     background-size: cover;
     font-family: helvetica;
     text-align: center;
